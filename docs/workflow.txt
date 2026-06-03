@@ -1,0 +1,118 @@
+flutter clean
+flutter pub get
+flutter run -d chrome
+
+
+DONE:
+
+1. Project setup
+   - Flutter project created (motiva2)
+
+2. Folder structure created:
+   - lib/screens/
+   - lib/widgets/
+   - lib/data/
+
+3. File structure created:
+   - main.dart
+   - screens:
+     - home_screen.dart
+     - panic_screen.dart
+     - breathing_screen.dart
+     - knowledge_screen.dart
+   - widgets:
+     - big_button.dart
+     - breathing_circle.dart
+   - data:
+     - panic_steps.dart
+     - breathing_techniques.dart
+
+4. Architecture plan defined:
+   DATA → WIDGETS → SCREENS → NAVIGATION → FEATURES → POLISH
+
+
+  
+
+   
+
+👉 BIG BUTTON widget
+
+🚀 СЛЕДНО (важно)
+
+После ова оди:
+
+👉 HOME SCREEN
+
+ќе направиме:
+
+3 големи копчиња:
+Panic Help 🆘
+Breathing 🌿
+Learn 📚
+
+
+
+👉 main.dart
+
+
+
+panic_screen.dart
+breathing_screen.dart
+knowledge_screen.dart
+
+sleden cekor
+panic_steps.dart 
+breathing_techniques.dart 
+
+
+sledno
+real breathing animation (moving circle + timer)
+
+✔ AnimationController (Flutter standard)
+✔ smooth 60fps animation
+✔ no timer jitter
+✔ proper lifecycle (dispose)
+✔ scalable structure
+✔ clean inhale/exhale loop
+
+PANIC MODE BUTTON
+
+кога човек има паника → не мисли
+мора 1 tap solution
+веднаш го активира системот
+
+Што прави:
+
+fullscreen calm screen
+старт breathing автоматски
+покажува “you are safe”
+блокира UI хаос 
+
+Panic Mode + Breathing Patterns (ова е “real value” делот)
+
+nov fajl 
+
+panic_mode_screen.dart
+
+BREATHING PATTERNS SYSTEM (real upgrade)
+
+PANIC MODE AUTO-BREATHING (1 tap → веднаш почнува смирување)
+🔥 full emergency screen flow
+🔥 no thinking UX (real anxiety design)
+
+sound breathing system
+
+1) Normal breathing (4–6)
+
+sledno 
+
+
+
+✅ 1. Central Typography System
+MotivaTypography е single source of truth
+✅ 2. Global UI consistency
+сите screens користат ист стил
+✅ 3. Scalable architecture
+можеш да менуваш UI од 1 место
+
+2) Box breathing (4–4–4–4)
