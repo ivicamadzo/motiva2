@@ -70,8 +70,9 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
 
       _controller.duration = const Duration(seconds: 6);
       await _controller.reverse();
-
-      completedCycles++;
+      setState(() {
+        completedCycles++;
+      });
 
       if (widget.panicMode && completedCycles >= 3) {
         _running = false;
@@ -86,9 +87,18 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
         return;
       }
 
-      if (!mounted || !_running) break;
+      if (completedCycles >= 10) {
+        _running = false;
 
-      await Future.delayed(const Duration(milliseconds: 200));
+        await playSound('assets/sounds/session_complete.mp3');
+
+        await Future.delayed(const Duration(seconds: 2));
+
+        if (!mounted) return;
+
+        Navigator.pop(context);
+        return;
+      }
     }
   }
 
@@ -146,6 +156,13 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
                   ),
                 ),
 
+                const SizedBox(height: 8),
+
+                Text(
+                  "Cycle $completedCycles / 10",
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+
                 const SizedBox(height: AppSpacing.lg),
 
                 Padding(
@@ -161,6 +178,8 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
 
                 ElevatedButton.icon(
                   onPressed: () {
+                    _running = false;
+                    player.stop();
                     Navigator.pop(context);
                   },
                   icon: const Icon(Icons.stop_circle_outlined),
