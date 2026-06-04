@@ -54,7 +54,7 @@ class _PanicModeScreenState extends State<PanicModeScreen> {
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Theme.of(
                   context,
-                ).colorScheme.onPrimary.withOpacity(0.75),
+                ).colorScheme.onPrimary.withValues(alpha: 0.75),
               ),
             ),
           ],

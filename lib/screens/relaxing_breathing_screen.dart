@@ -134,10 +134,10 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
                       color: isInhale
                           ? Theme.of(
                               context,
-                            ).colorScheme.primary.withOpacity(0.4)
+                            ).colorScheme.primary.withValues(alpha: 0.4)
                           : Theme.of(
                               context,
-                            ).colorScheme.primary.withOpacity(0.7),
+                            ).colorScheme.primary.withValues(alpha: 0.7),
                     ),
                     child: Icon(
                       Icons.air,

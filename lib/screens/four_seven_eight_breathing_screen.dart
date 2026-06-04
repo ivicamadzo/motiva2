@@ -103,7 +103,9 @@ class _FourSevenEightBreathingScreenState
               width: size,
               height: size,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.5),
+                color: Theme.of(
+                  context,
+                ).colorScheme.primary.withValues(alpha: 0.5),
                 shape: BoxShape.circle,
               ),
               child: Center(
