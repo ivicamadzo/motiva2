@@ -40,7 +40,7 @@ class GroundingScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/panic-help');
+                  Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 child: const Text("продолжи"),
               ),

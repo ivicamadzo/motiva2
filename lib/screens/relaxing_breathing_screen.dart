@@ -74,7 +74,7 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
         completedCycles++;
       });
 
-      if (widget.panicMode && completedCycles >= 3) {
+      if (widget.panicMode && completedCycles >= 10) {
         _running = false;
 
         if (mounted) {
@@ -177,10 +177,18 @@ class _RelaxingBreathingScreenState extends State<RelaxingBreathingScreen>
                 const SizedBox(height: AppSpacing.xl),
 
                 ElevatedButton.icon(
-                  onPressed: () {
+                  onPressed: () async {
                     _running = false;
-                    player.stop();
-                    Navigator.pop(context);
+
+                    await player.stop();
+
+                    if (!mounted) return;
+
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/',
+                      (route) => false,
+                    );
                   },
                   icon: const Icon(Icons.stop_circle_outlined),
                   label: const Text("Stop Session"),

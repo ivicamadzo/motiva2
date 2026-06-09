@@ -116,3 +116,12 @@ MotivaTypography е single source of truth
 можеш да менуваш UI од 1 место
 
 2) Box breathing (4–4–4–4)
+
+- Added Box Breathing screen
+- Added 4-7-8 Breathing screen
+- Improved Relax Breathing screen
+- Added breathing cycle animations
+- Added guidance text and session controls
+- Updated UI consistency across breathing exercises
+
+

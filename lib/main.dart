@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
-import 'package:motiva2/screens/home_screen.dart';
 import 'package:motiva2/screens/relaxing_breathing_screen.dart';
 import 'package:motiva2/screens/box_breathing_screen.dart';
 import 'package:motiva2/screens/four_seven_eight_breathing_screen.dart';
 import 'package:motiva2/screens/knowledge_screen.dart';
 import 'package:motiva2/screens/about_screen.dart';
 import 'package:motiva2/screens/breathing_menu_screen.dart';
-import 'package:motiva2/screens/panic_flow_screen.dart';
 import 'package:motiva2/screens/grounding_screen.dart';
 import 'package:motiva2/screens/panic_screen.dart';
+import 'package:motiva2/screens/panic_mode_screen.dart';
+import 'package:motiva2/screens/main_navigation_screen.dart';
 
 import 'package:motiva2/theme/app_theme.dart';
 
@@ -28,8 +27,8 @@ class MotivaApp extends StatelessWidget {
       theme: AppTheme.light,
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
-        '/panic': (context) => const PanicFlowScreen(),
+        '/': (context) => const MainNavigationScreen(),
+        '/panic': (context) => const PanicModeScreen(),
         '/breathing': (context) => const BreathingMenuScreen(),
         '/grounding': (context) => const GroundingScreen(),
         '/panic-help': (context) => const PanicScreen(),
