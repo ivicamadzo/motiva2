@@ -36,31 +36,16 @@ class _CalmSoundsScreenState extends State<CalmSoundsScreen> {
   ) async {
     final isSame = currentSound == soundId;
 
-    // 🔥 STOP FIRST ALWAYS (prevents overlap bug)
     await AudioService.stop();
 
     if (isSame) {
       setState(() => currentSound = null);
-
-      if (!mounted) return;
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('$soundName stopped')));
-
       return;
     }
 
-    // 🔥 IMPORTANT: update UI BEFORE play (Spotify behavior)
     setState(() => currentSound = soundId);
 
     await AudioService.play(assetPath);
-
-    if (!mounted) return;
-
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text('$soundName playing')));
   }
 
   Widget _soundTile({
