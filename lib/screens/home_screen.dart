@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_radius.dart';
 import '../theme/app_spacing.dart';
+import '../data/quotes.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
   String getGreeting() {
     final hour = DateTime.now().hour;
 
@@ -17,13 +21,17 @@ class HomeScreen extends StatelessWidget {
     }
   }
 
+  Map<String, String> getRandomQuote() {
+    return quotes[Random().nextInt(quotes.length)];
+  }
+
   @override
   Widget build(BuildContext context) {
+    final quote = getRandomQuote();
+
     return Scaffold(
       backgroundColor: AppColors.background,
-
       appBar: AppBar(title: const Text("Motiva"), centerTitle: true),
-
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(AppSpacing.md),
@@ -32,6 +40,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               const SizedBox(height: AppSpacing.sm),
 
+              // Greeting Card
               Container(
                 padding: const EdgeInsets.all(AppSpacing.xl),
                 decoration: BoxDecoration(
@@ -53,18 +62,14 @@ class HomeScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                     ),
-
                     const SizedBox(height: AppSpacing.xs),
-
                     Text(
                       "Како се чувствуваш денес?",
                       style: Theme.of(
                         context,
                       ).textTheme.bodyLarge?.copyWith(color: Colors.white70),
                     ),
-
                     const SizedBox(height: AppSpacing.md),
-
                     Text(
                       "Тука сум за да ти помогнам да се смириш и да ја вратиш контролата.",
                       style: Theme.of(
@@ -77,6 +82,34 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: AppSpacing.lg),
 
+              // Daily Quote
+              Container(
+                padding: const EdgeInsets.all(AppSpacing.md),
+                decoration: BoxDecoration(
+                  color: AppColors.surface,
+                  borderRadius: AppRadius.mediumBorder,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      '"${quote["quote"]}"',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: AppSpacing.sm),
+                    Text(
+                      "— ${quote["author"]}",
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.textMuted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: AppSpacing.lg),
+
+              // Safe Card
               Container(
                 padding: const EdgeInsets.all(AppSpacing.md),
                 decoration: BoxDecoration(
@@ -90,9 +123,7 @@ class HomeScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
-
                     const SizedBox(height: AppSpacing.xs),
-
                     Text(
                       "This feeling will pass. Focus on one breath at a time.",
                       textAlign: TextAlign.center,

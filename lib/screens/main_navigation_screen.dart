@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'breathing_menu_screen.dart';
 import 'panic_mode_screen.dart';
-import 'about_screen.dart';
+import 'profile_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -19,7 +19,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     HomeScreen(),
     BreathingMenuScreen(),
     PanicModeScreen(),
-    AboutScreen(),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {

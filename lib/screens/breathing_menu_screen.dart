@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'calm_sounds_screen.dart';
 
 class BreathingMenuScreen extends StatelessWidget {
   const BreathingMenuScreen({super.key});
@@ -58,6 +59,20 @@ class BreathingMenuScreen extends StatelessWidget {
             color: Colors.deepPurple,
             onTap: () {
               Navigator.pushNamed(context, '/four-seven-eight-breathing');
+            },
+          ),
+          const SizedBox(height: 15),
+
+          _BreathingCard(
+            title: "Calm Sounds",
+            subtitle: "Rain, Forest, Ocean & Fireplace",
+            icon: Icons.headphones,
+            color: Colors.teal,
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const CalmSoundsScreen()),
+              );
             },
           ),
 
